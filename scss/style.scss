@@ -10,11 +10,16 @@ $anim-delay: 0.2s;
          url('../fonts/opensans-regular-webfont.woff2') format('woff2');
 }
 
-*{
-    margin:0;
-    padding: 0;
-    font-family: 'open_sansregular';
+@font-face {
+    font-family: 'trueno';
+    src: url('../fonts/truenobd-webfont.woff') format('woff'),
+         url('../fonts/truenobd-webfont.woff2') format('woff2');
 }
+
+@mixin box-shadow{
+    box-shadow: 0px 0px 15px black;
+  }
+  
 
 @keyframes point {
 	0% {
@@ -45,6 +50,12 @@ $anim-delay: 0.2s;
 	}
 }
 
+*{
+    margin:0;
+    padding: 0;
+    font-family: 'open_sansregular';
+}
+
 .header{
     width: 100%;
 
@@ -60,9 +71,16 @@ $anim-delay: 0.2s;
             padding: 7vh;
         }
 
-        &__img{
-            width: 40%;
+        &__h1{
             margin: auto;
+            color: $couleurSecondaire;
+            font-family: 'trueno';
+            font-size: 6em;
+            font-weight: 300;
+            text-transform: lowercase;
+            @media (max-width: 576px) {
+                font-size: 4em;
+            }
         }
     }
 }
@@ -78,7 +96,7 @@ $anim-delay: 0.2s;
             width: $tailleImage;
             display: inline-block;
             margin: 50px;
-            box-shadow: 0px 0px 15px black;
+            @include box-shadow;
             overflow: hidden;
             @media (max-width: 768px) {
                 width: $tailleImageResponsive;
@@ -127,6 +145,24 @@ $anim-delay: 0.2s;
                 }
             }
         }
+    }
+
+    &__presentation{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+        &__h2{
+            font-size: 3em;
+            font-weight: 900;
+        }
+    }
+
+    &__menuDetails{
+        background-color: pink;
+        margin: auto;
+        width: 95%;
+        height: 500px;
+        @include box-shadow;
     }
 }
 

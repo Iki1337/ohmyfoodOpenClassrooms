@@ -3,10 +3,9 @@
   src: url("../fonts/opensans-regular-webfont.woff") format("woff"), url("../fonts/opensans-regular-webfont.woff2") format("woff2");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'open_sansregular';
+@font-face {
+  font-family: 'trueno';
+  src: url("../fonts/truenobd-webfont.woff") format("woff"), url("../fonts/truenobd-webfont.woff2") format("woff2");
 }
 
 @keyframes point {
@@ -35,6 +34,12 @@
   }
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'open_sansregular';
+}
+
 .header {
   width: 100%;
 }
@@ -54,9 +59,19 @@
   }
 }
 
-.header__container__img {
-  width: 40%;
+.header__container__h1 {
   margin: auto;
+  color: #fdcb46;
+  font-family: 'trueno';
+  font-size: 6em;
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+@media (max-width: 576px) {
+  .header__container__h1 {
+    font-size: 4em;
+  }
 }
 
 .main {
@@ -131,6 +146,25 @@
   .main__prochainement__bouton__point {
     margin: auto;
   }
+}
+
+.main__presentation {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.main__presentation__h2 {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.main__menuDetails {
+  background-color: pink;
+  margin: auto;
+  width: 95%;
+  height: 500px;
+  box-shadow: 0px 0px 15px black;
 }
 
 .footer {
