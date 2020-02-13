@@ -1,8 +1,11 @@
 $couleurPrincipale: #569C87;
 $couleurSecondaire: #fdcb46;
+$couleurNoteEnchantee: #FDE0DC;
 $tailleImage: 40%;
 $tailleImageResponsive: 70%;
 $anim-delay: 0.2s;
+$tailleBgcBarreNoteEnchantee: 30%;
+$tailleBgcBarreRespNoteEnchantee: 20%;
 
 @font-face {
     font-family: 'open_sansregular';
@@ -16,9 +19,46 @@ $anim-delay: 0.2s;
          url('../fonts/truenobd-webfont.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'devonshire';
+    src: url('../fonts/devonshire-regular-webfont.woff') format('woff'),
+         url('../fonts/devonshire-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'kalam';
+    src: url('../fonts/kalam-regular-webfont.woff') format('woff'),
+         url('../fonts/kalam-regular-webfont.woff2') format('woff2');
+}
+
 @mixin box-shadow{
     box-shadow: 0px 0px 15px black;
-  }
+}
+
+@mixin before($bgc-img, $width){
+    content: "";
+    background: url($bgc-img) no-repeat;
+    background-size: 100%;
+    width: $width;
+    height: 15px;
+    float: left;
+    margin-top: 5px;
+}
+
+@mixin after($bgc-img, $width){
+    content: "";
+    background: url($bgc-img) no-repeat;
+    background-size: 100%;
+    width: $width;
+    height: 15px;
+    float: right;
+    margin-top: 5px;
+}
+
+@mixin spanPrix{
+    float: right;
+    font-weight: 900;
+}
   
 
 @keyframes point {
@@ -158,11 +198,120 @@ $anim-delay: 0.2s;
     }
 
     &__menuDetails{
-        background-color: pink;
         margin: auto;
         width: 95%;
-        height: 500px;
+        padding: 80px 0;
         @include box-shadow;
+        &--laNoteEnchantee{
+            background-color: $couleurNoteEnchantee;
+            h4, p, span{
+                font-family: "kalam";
+                @media (max-width: 767px) {
+                    font-size: 0.7rem;
+                }
+                @media (max-width: 360px) {
+                    font-size: 0.5rem;
+                }
+            }
+        }
+        &__head{
+            text-align: center;
+            &__titre{
+                &--laNoteEnchantee{
+                    font-family: "devonshire";
+                    font-size: 5rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 3rem;
+                    }
+                }
+            }
+        }
+        &__body{
+            width: 80%;
+            margin: auto;
+            h4{
+                margin: 30px auto;
+                text-align: center;
+                font-size: 1.5rem;
+                @media (max-width: 767px) {
+                    font-size: 1rem;
+                }
+            }
+            &__entree{
+                &__h4{
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+            }
+            &__plat{
+                &__h4{
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+            }
+            &__dessert{
+                &__h4{
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                }
+            }
+        }
+        &__foot{
+            text-align: center;
+            margin-top: 50px;
+            &__titre{
+                font-size: 3rem;
+                &--laNoteEnchantee{
+                    font-family: "devonshire";
+                    font-weight: lighter;
+                }
+                @media (max-width: 375px) {
+                    font-size: 1rem;
+                }
+                &__img{
+                    vertical-align: middle;
+                    width:6.5%;
+                    margin-right: 20px;
+                }
+            }
+        }
     }
 }
 
