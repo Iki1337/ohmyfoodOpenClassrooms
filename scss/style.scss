@@ -1,11 +1,29 @@
 $couleurPrincipale: #569C87;
 $couleurSecondaire: #fdcb46;
 $couleurNoteEnchantee: #FDE0DC;
-$tailleImage: 40%;
+$couleurSecondaireNoteEnchantee: #3d1319;
+$couleurChicALaFrancaise: #FFF5FE;
+$couleurSecondaireChicALaFrancaise: #c67412;
+$couleurTertiaireChicALaFrancaise: #a56799;
+$couleurQuaternaireChicALaFrancaise: #6e4ccc;
+$couleurDeliceDesPapilles: #EDEFEF;
+$couleurSecondaireDeliceDesPapilles: #0228DD;
+$couleurTertiaireDeliceDesPapilles: #1E7EF4;
+$couleurQuaternaireDeliceDesPapilles: #229DF9;
+$couleurPaletteDuGout:#FDFFFD;
+$couleurSecondairePaletteDuGout:#41963C;
+$couleurTertiairePaletteDuGout:#BEFA88;
+$tailleImage: 35%;
 $tailleImageResponsive: 70%;
 $anim-delay: 0.2s;
 $tailleBgcBarreNoteEnchantee: 30%;
 $tailleBgcBarreRespNoteEnchantee: 20%;
+$tailleBgcBarreChicALaFrancaise: 25%;
+$tailleBgcBarreRespChicALaFrancaise: 15%;
+$tailleBgcBarreDeliceDesPapilles: 25%;
+$tailleBgcBarreRespDeliceDesPapilles: 15%;
+$tailleBgcBarrePaletteDuGout: 28%;
+$tailleBgcBarreRespPaletteDuGout: 23%;
 
 @font-face {
     font-family: 'open_sansregular';
@@ -31,6 +49,30 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
          url('../fonts/kalam-regular-webfont.woff2') format('woff2');
 }
 
+@font-face {
+    font-family: 'croissant';
+    src: url('../fonts/croissantone-regular-webfont.woff') format('woff'),
+         url('../fonts/croissantone-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'yrsa';
+    src: url('../fonts/yrsa-regular-webfont.woff') format('woff'),
+         url('../fonts/yrsa-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'dancing';
+    src: url('../fonts/dancing_script-webfont.woff') format('woff'),
+         url('../fonts/dancing_script-webfont.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'kaushan';
+    src: url('../fonts/kaushanscript-regular-webfont.woff') format('woff'),
+         url('../fonts/kaushanscript-regular-webfont.woff2') format('woff2');
+}
+
 @mixin box-shadow{
     box-shadow: 0px 0px 15px black;
 }
@@ -40,7 +82,7 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
     background: url($bgc-img) no-repeat;
     background-size: 100%;
     width: $width;
-    height: 15px;
+    height: 17px;
     float: left;
     margin-top: 5px;
 }
@@ -50,7 +92,7 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
     background: url($bgc-img) no-repeat;
     background-size: 100%;
     width: $width;
-    height: 15px;
+    height: 17px;
     float: right;
     margin-top: 5px;
 }
@@ -58,6 +100,22 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
 @mixin spanPrix{
     float: right;
     font-weight: 900;
+}
+
+@mixin animSoulignage($bgc){
+    width: 40%;
+    height: 2px;
+    transform: scaleX(0);
+    opacity: 0;
+    transition: 1s;
+    margin: auto;
+    transform-origin: left;
+    background-color: ($bgc);
+}
+
+@mixin declencheurSoulignage{
+    transform: scaleX(1);
+    opacity: 1;
 }
   
 
@@ -96,6 +154,10 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
     font-family: 'open_sansregular';
 }
 
+a{
+    text-decoration: none;
+}
+
 .header{
     width: 100%;
 
@@ -113,21 +175,26 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
 
         &__h1{
             margin: auto;
-            color: $couleurSecondaire;
-            font-family: 'trueno';
             font-size: 6em;
             font-weight: 300;
             text-transform: lowercase;
             @media (max-width: 576px) {
                 font-size: 4em;
             }
+            &__link{
+                color: $couleurSecondaire;
+                font-family: 'trueno';
+            }
         }
     }
 }
 
 .main{
-    width: 90%;
+    width: 80%;
     margin:auto auto 220px auto;
+    @media (max-width: 767px) {
+        width: 95%;
+    }
 
     &__menu{
         text-align: center;
@@ -202,27 +269,95 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
         width: 95%;
         padding: 80px 0;
         @include box-shadow;
+        h4, p, span{
+            @media (max-width: 768px) {
+                font-size: 0.6rem;
+            }
+            @media (max-width: 375px) {
+                font-size: 0.5rem;
+            }
+        }
         &--laNoteEnchantee{
             background-color: $couleurNoteEnchantee;
+            &__head__img{
+                @media (max-width: 767px) {
+                    width: 15%;
+                }
+            }
+            h4, p, span{
+                color:$couleurSecondaireNoteEnchantee;
+                font-family: "kalam";
+            }
+        }
+        &--leChicALaFrancaise{
+            background-color: $couleurChicALaFrancaise;
+            h4, p, span{
+                font-family: "yrsa";
+            }
+            .main__menuDetails__body__entree{
+                color:$couleurSecondaireChicALaFrancaise;
+            }
+            .main__menuDetails__body__plat{
+                color:$couleurTertiaireChicALaFrancaise;
+            }
+            .main__menuDetails__body__dessert{
+                color:$couleurQuaternaireChicALaFrancaise;
+            }
+        }
+        &--leDeliceDesPapilles{
+            background-color: $couleurDeliceDesPapilles;
             h4, p, span{
                 font-family: "kalam";
-                @media (max-width: 767px) {
-                    font-size: 0.7rem;
-                }
-                @media (max-width: 360px) {
-                    font-size: 0.5rem;
-                }
+            }
+        }
+        &--laPaletteDuGout{
+            background-color: $couleurPaletteDuGout;
+            h4, p, span{
+                font-family: "kalam";
             }
         }
         &__head{
             text-align: center;
             &__titre{
                 &--laNoteEnchantee{
+                    color:$couleurSecondaireNoteEnchantee;
                     font-family: "devonshire";
                     font-size: 5rem;
                     font-weight: lighter;
                     @media (max-width: 375px) {
                         font-size: 3rem;
+                    }
+                }
+                &--leChicALaFrancaise{
+                    background: linear-gradient(135deg, $couleurSecondaireChicALaFrancaise 26%,$couleurTertiaireChicALaFrancaise 49%,$couleurQuaternaireChicALaFrancaise 70%);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "croissant";
+                    font-size: 3rem;
+                    @media (max-width: 375px) {
+                        font-size: 1.3rem;
+                    }
+                }
+                &--leDeliceDesPapilles{
+                    background: linear-gradient(135deg, $couleurSecondaireDeliceDesPapilles 26%,$couleurTertiaireDeliceDesPapilles 49%,$couleurQuaternaireDeliceDesPapilles 70%);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "dancing";
+                    font-size: 4rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 2rem;
+                    }
+                }
+                &--laPaletteDuGout{
+                    background: linear-gradient(135deg, $couleurSecondairePaletteDuGout 30%,$couleurTertiairePaletteDuGout 60%);
+                    background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "kaushan";
+                    font-size: 4rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 2rem;
                     }
                 }
             }
@@ -231,15 +366,22 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
             width: 80%;
             margin: auto;
             h4{
-                margin: 30px auto;
+                margin: 30px auto auto auto;
                 text-align: center;
                 font-size: 1.5rem;
+                transition: 1s;
                 @media (max-width: 767px) {
                     font-size: 1rem;
                 }
             }
+            p{
+                margin: 10px auto auto auto;
+            }
             &__entree{
                 &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
                     &--laNoteEnchantee:before{
                         @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
                         @media (max-width: 767px) {
@@ -252,13 +394,66 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
                             @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
                         }
                     }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechejauneg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechejauneg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechejauned.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechejauned.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleuefonceg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleuefonceg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleuefonced.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleuefonced.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
                 }
                 &__prix{
                     @include spanPrix;                    
+                }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
+                    }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurSecondaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurSecondaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
+                    }
                 }
             }
             &__plat{
                 &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
                     &--laNoteEnchantee:before{
                         @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
                         @media (max-width: 767px) {
@@ -269,26 +464,133 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
                         @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
                         @media (max-width: 767px) {
                             @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechevioletteg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechevioletteg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechevioletted.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechevioletted.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleueg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleueg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleued.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleued.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
+                    }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurTertiaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurTertiaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
+                    }
+                }
+            }
+            &__dessert{
+                &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechebleueg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechebleueg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechebleued.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechebleued.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleueclairg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleueclairg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleueclaird.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleueclaird.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
                         }
                     }
                 }
                 &__prix{
                     @include spanPrix;                    
                 }
-            }
-            &__dessert{
-                &__h4{
-                    &--laNoteEnchantee:before{
-                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
-                        @media (max-width: 767px) {
-                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
-                        }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
                     }
-                    &--laNoteEnchantee:after{
-                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
-                        @media (max-width: 767px) {
-                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
-                        }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurQuaternaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurQuaternaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
                     }
                 }
             }
@@ -301,6 +603,7 @@ $tailleBgcBarreRespNoteEnchantee: 20%;
                 &--laNoteEnchantee{
                     font-family: "devonshire";
                     font-weight: lighter;
+                    color:$couleurSecondaireNoteEnchantee;
                 }
                 @media (max-width: 375px) {
                     font-size: 1rem;
