@@ -13,8 +13,14 @@ $couleurQuaternaireDeliceDesPapilles: #229DF9;
 $couleurPaletteDuGout:#FDFFFD;
 $couleurSecondairePaletteDuGout:#41963C;
 $couleurTertiairePaletteDuGout:#BEFA88;
-$tailleImage: 35%;
-$tailleImageResponsive: 70%;
+$tailleImage: 500px;
+$hauteurImage: 600px;
+$tailleImageResponsive1500: 400px;
+$tailleImageResponsive1280: 350px;
+$tailleImageResponsive512: 270px;
+$hauteurImageResponsive1500: 500px;
+$hauteurImageResponsive1280: 450px;
+$hauteurImageResponsive512: 400px;
 $anim-delay: 0.2s;
 $tailleBgcBarreNoteEnchantee: 30%;
 $tailleBgcBarreRespNoteEnchantee: 20%;
@@ -197,25 +203,126 @@ a{
     }
 
     &__menu{
-        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
 
         &__containerImg{
             width: $tailleImage;
-            display: inline-block;
+            height: $hauteurImage;
+            overflow: hidden;
             margin: 50px;
             @include box-shadow;
-            overflow: hidden;
-            @media (max-width: 768px) {
-                width: $tailleImageResponsive;
+            @media (max-width: 1500px) {
+                width: $tailleImageResponsive1500;
+                height: $hauteurImageResponsive1500;
+            }
+            @media (max-width: 1280px) {
+                width: $tailleImageResponsive1280;
+                height: $hauteurImageResponsive1280;
+            }
+            @media (max-width: 512px) {
+                width: $tailleImageResponsive512;
+                height: $hauteurImageResponsive512;
             }
 
-            &__img{
+            &__box{
+                transition: 1s;
                 width: 100%;
-                transform: scale(1.1);
-                transition:1s;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 &:hover{
-                    transform: scale(1.25);
                     opacity: 0.5;
+                    transform: scale(1.2);
+                }
+                &--laNoteEnchantee{
+                    background-color: $couleurNoteEnchantee;
+                    color:  $couleurSecondaireNoteEnchantee;
+                    &__img{
+                        width: 20%;
+                    }
+                    &__h2{
+                        font-size: 3rem;
+                        font-family: "devonshire";
+                        font-weight: lighter;
+                        @media (max-width: 512px) {
+                            font-size: 2rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-weight: bolder;
+                        font-size: 2.5rem;
+                    }
+                }
+                &--leChicALaFrancaise{
+                    background-color: $couleurChicALaFrancaise;
+                    &__h2{
+                        background: linear-gradient(135deg, $couleurSecondaireChicALaFrancaise 26%,$couleurTertiaireChicALaFrancaise 49%,$couleurQuaternaireChicALaFrancaise 70%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 1.5rem;
+                        font-family: "croissant";
+                        @media (max-width: 512px) {
+                            font-size: 1rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "yrsa";
+                        color: $couleurSecondaireChicALaFrancaise;
+                        font-weight: bolder;
+                        font-size: 2.5rem;
+                    }
+                }
+    
+                &--leDeliceDesPapilles{
+                    background-color: $couleurDeliceDesPapilles;
+                    &__h2{
+                        width: 100%;
+                        text-align: center;
+                        background: linear-gradient(135deg, $couleurSecondaireDeliceDesPapilles 26%,$couleurTertiaireDeliceDesPapilles 49%,$couleurQuaternaireDeliceDesPapilles 70%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 2.2rem;
+                        font-family: "dancing";
+                        @media (max-width: 512px) {
+                            font-size: 1.6rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-size: 2.5rem;
+                        color: $couleurSecondaireDeliceDesPapilles;
+                    }
+                }
+    
+                &--laPaletteDuGout{
+                    background-color: $couleurPaletteDuGout;
+                    &__h2{
+                        width: 100%;
+                        text-align: center;
+                        background: linear-gradient(135deg, $couleurSecondairePaletteDuGout 30%,$couleurTertiairePaletteDuGout 60%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-family: "kaushan";
+                        font-weight: lighter;
+                        font-size: 2rem;
+                        @media (max-width: 512px) {
+                            font-size: 1.7rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-size: 2.5rem;
+                        color: $couleurSecondairePaletteDuGout;
+                    }
                 }
             }
         }
@@ -234,8 +341,7 @@ a{
             justify-content: center;
 
             &__point{
-                margin:auto 50px;
-                font-size: 100px;
+                margin:auto;
                 background-color: $couleurSecondaire;
                 width: 40px;
                 height: 40px;
@@ -331,6 +437,7 @@ a{
                 &--leChicALaFrancaise{
                     background: linear-gradient(135deg, $couleurSecondaireChicALaFrancaise 26%,$couleurTertiaireChicALaFrancaise 49%,$couleurQuaternaireChicALaFrancaise 70%);
                     background-clip: text;
+                    -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     font-family: "croissant";
                     font-size: 3rem;
@@ -341,6 +448,7 @@ a{
                 &--leDeliceDesPapilles{
                     background: linear-gradient(135deg, $couleurSecondaireDeliceDesPapilles 26%,$couleurTertiaireDeliceDesPapilles 49%,$couleurQuaternaireDeliceDesPapilles 70%);
                     background-clip: text;
+                    -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     font-family: "dancing";
                     font-size: 4rem;
@@ -352,6 +460,7 @@ a{
                 &--laPaletteDuGout{
                     background: linear-gradient(135deg, $couleurSecondairePaletteDuGout 30%,$couleurTertiairePaletteDuGout 60%);
                     background-clip: text;
+                    -webkit-background-clip: text;
                     -webkit-text-fill-color: transparent;
                     font-family: "kaushan";
                     font-size: 4rem;
@@ -376,6 +485,9 @@ a{
             }
             p{
                 margin: 10px auto auto auto;
+                @media (min-width: 980px) {
+                    margin: 10px 7% auto 7%;
+                }
             }
             &__entree{
                 &__h4{
