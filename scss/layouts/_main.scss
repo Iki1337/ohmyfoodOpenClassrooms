@@ -1,0 +1,534 @@
+.main{
+    width: 80%;
+    margin:auto auto 220px auto;
+    @media (max-width: 767px) {
+        width: 95%;
+    }
+
+    &__menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+
+        &__containerImg{
+            width: $tailleImage;
+            height: $hauteurImage;
+            overflow: hidden;
+            margin: 50px;
+            @include box-shadow;
+            @media (max-width: 1500px) {
+                width: $tailleImageResponsive1500;
+                height: $hauteurImageResponsive1500;
+            }
+            @media (max-width: 1280px) {
+                width: $tailleImageResponsive1280;
+                height: $hauteurImageResponsive1280;
+            }
+            @media (max-width: 512px) {
+                width: $tailleImageResponsive512;
+                height: $hauteurImageResponsive512;
+            }
+
+            &__box{
+                transition: 1s;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                &:hover{
+                    opacity: 0.5;
+                    transform: scale(1.2);
+                }
+                &--laNoteEnchantee{
+                    background-color: $couleurNoteEnchantee;
+                    color:  $couleurSecondaireNoteEnchantee;
+                    &__img{
+                        width: 20%;
+                    }
+                    &__h2{
+                        font-size: 3rem;
+                        font-family: "devonshire";
+                        font-weight: lighter;
+                        @media (max-width: 512px) {
+                            font-size: 2rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-weight: bolder;
+                        font-size: 2.5rem;
+                    }
+                }
+                &--leChicALaFrancaise{
+                    background-color: $couleurChicALaFrancaise;
+                    &__h2{
+                        background: linear-gradient(135deg, $couleurSecondaireChicALaFrancaise 26%,$couleurTertiaireChicALaFrancaise 49%,$couleurQuaternaireChicALaFrancaise 70%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 1.5rem;
+                        font-family: "croissant";
+                        @media (max-width: 512px) {
+                            font-size: 1rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "yrsa";
+                        color: $couleurSecondaireChicALaFrancaise;
+                        font-weight: bolder;
+                        font-size: 2.5rem;
+                    }
+                }
+    
+                &--leDeliceDesPapilles{
+                    background-color: $couleurDeliceDesPapilles;
+                    &__h2{
+                        width: 100%;
+                        text-align: center;
+                        background: linear-gradient(135deg, $couleurSecondaireDeliceDesPapilles 26%,$couleurTertiaireDeliceDesPapilles 49%,$couleurQuaternaireDeliceDesPapilles 70%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-size: 2.2rem;
+                        font-family: "dancing";
+                        @media (max-width: 512px) {
+                            font-size: 1.6rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-size: 2.5rem;
+                        color: $couleurSecondaireDeliceDesPapilles;
+                    }
+                }
+    
+                &--laPaletteDuGout{
+                    background-color: $couleurPaletteDuGout;
+                    &__h2{
+                        width: 100%;
+                        text-align: center;
+                        background: linear-gradient(135deg, $couleurSecondairePaletteDuGout 30%,$couleurTertiairePaletteDuGout 60%);
+                        background-clip: text;
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        font-family: "kaushan";
+                        font-weight: lighter;
+                        font-size: 2rem;
+                        @media (max-width: 512px) {
+                            font-size: 1.7rem;
+                        }
+                    }
+                    &__p{
+                        font-family: "kalam";
+                        font-size: 2.5rem;
+                        color: $couleurSecondairePaletteDuGout;
+                    }
+                }
+            }
+        }
+    }
+
+    &__prochainement{
+
+        &__bouton{
+            margin: auto;
+            background-color: $couleurPrincipale;
+            width: 50%;
+            height: 120px;
+            text-align: center;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+
+            &__point{
+                margin:auto;
+                background-color: $couleurSecondaire;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                animation: point 1s ease-in-out alternate infinite;
+                animation-fill-mode: backwards;
+                @for $i from 1 through 3 {
+                    &--#{$i} {
+                        animation-delay: $anim-delay * $i;
+                    }
+                }
+                @media (max-width: 768px) {
+                    margin: auto;
+                }
+            }
+        }
+    }
+
+    &__presentation{
+        width: 100%;
+        text-align: center;
+        margin-bottom: 50px;
+        &__h2{
+            font-size: 3em;
+            font-weight: 900;
+        }
+    }
+
+    &__menuDetails{
+        margin: auto;
+        width: 95%;
+        padding: 80px 0;
+        @include box-shadow;
+        h4, p, span{
+            @media (max-width: 768px) {
+                font-size: 0.6rem;
+            }
+            @media (max-width: 375px) {
+                font-size: 0.5rem;
+            }
+        }
+        &--laNoteEnchantee{
+            background-color: $couleurNoteEnchantee;
+            &__head__img{
+                @media (max-width: 767px) {
+                    width: 15%;
+                }
+            }
+            h4, p, span{
+                color:$couleurSecondaireNoteEnchantee;
+                font-family: "kalam";
+            }
+        }
+        &--leChicALaFrancaise{
+            background-color: $couleurChicALaFrancaise;
+            h4, p, span{
+                font-family: "yrsa";
+            }
+            .main__menuDetails__body__entree{
+                color:$couleurSecondaireChicALaFrancaise;
+            }
+            .main__menuDetails__body__plat{
+                color:$couleurTertiaireChicALaFrancaise;
+            }
+            .main__menuDetails__body__dessert{
+                color:$couleurQuaternaireChicALaFrancaise;
+            }
+        }
+        &--leDeliceDesPapilles{
+            background-color: $couleurDeliceDesPapilles;
+            h4, p, span{
+                font-family: "kalam";
+            }
+        }
+        &--laPaletteDuGout{
+            background-color: $couleurPaletteDuGout;
+            h4, p, span{
+                font-family: "kalam";
+            }
+        }
+        &__head{
+            text-align: center;
+            &__titre{
+                &--laNoteEnchantee{
+                    color:$couleurSecondaireNoteEnchantee;
+                    font-family: "devonshire";
+                    font-size: 5rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 3rem;
+                    }
+                }
+                &--leChicALaFrancaise{
+                    background: linear-gradient(135deg, $couleurSecondaireChicALaFrancaise 26%,$couleurTertiaireChicALaFrancaise 49%,$couleurQuaternaireChicALaFrancaise 70%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "croissant";
+                    font-size: 3rem;
+                    @media (max-width: 375px) {
+                        font-size: 1.3rem;
+                    }
+                }
+                &--leDeliceDesPapilles{
+                    background: linear-gradient(135deg, $couleurSecondaireDeliceDesPapilles 26%,$couleurTertiaireDeliceDesPapilles 49%,$couleurQuaternaireDeliceDesPapilles 70%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "dancing";
+                    font-size: 4rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 2rem;
+                    }
+                }
+                &--laPaletteDuGout{
+                    background: linear-gradient(135deg, $couleurSecondairePaletteDuGout 30%,$couleurTertiairePaletteDuGout 60%);
+                    background-clip: text;
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    font-family: "kaushan";
+                    font-size: 4rem;
+                    font-weight: lighter;
+                    @media (max-width: 375px) {
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+        &__body{
+            width: 80%;
+            margin: auto;
+            h4{
+                margin: 30px auto auto auto;
+                text-align: center;
+                font-size: 1.5rem;
+                transition: 1s;
+                @media (max-width: 767px) {
+                    font-size: 1rem;
+                }
+            }
+            p{
+                margin: 10px auto auto auto;
+                @media (min-width: 980px) {
+                    margin: 10px 7% auto 7%;
+                }
+            }
+            &__entree{
+                &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechejauneg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechejauneg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechejauned.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechejauned.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleuefonceg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleuefonceg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleuefonced.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleuefonced.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
+                    }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurSecondaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurSecondaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
+                    }
+                }
+            }
+            &__plat{
+                &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechevioletteg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechevioletteg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechevioletted.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechevioletted.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleueg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleueg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleued.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleued.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
+                    }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurTertiaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurTertiaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
+                    }
+                }
+            }
+            &__dessert{
+                &__h4{
+                    &:hover+div{
+                        @include declencheurSoulignage;
+                    }
+                    &--laNoteEnchantee:before{
+                        @include before("../img/marrong.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include before("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--laNoteEnchantee:after{
+                        @include after("../img/marrond.png", $tailleBgcBarreNoteEnchantee);
+                        @media (max-width: 767px) {
+                            @include after("../img/marrong.png", $tailleBgcBarreRespNoteEnchantee);
+                        }
+                    }
+                    &--leChicALaFrancaise:before{
+                        @include before("../img/flechebleueg.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include before("../img/flechebleueg.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leChicALaFrancaise:after{
+                        @include after("../img/flechebleued.png", $tailleBgcBarreChicALaFrancaise);
+                        @media (max-width: 800px) {
+                            @include after("../img/flechebleued.png", $tailleBgcBarreRespChicALaFrancaise);
+                        }
+                    }
+                    &--leDeliceDesPapilles:before{
+                        @include before("../img/lignebleueclairg.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include before("../img/lignebleueclairg.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--leDeliceDesPapilles:after{
+                        @include after("../img/lignebleueclaird.png", $tailleBgcBarreDeliceDesPapilles);
+                        @media (max-width: 800px) {
+                            @include after("../img/lignebleueclaird.png", $tailleBgcBarreRespDeliceDesPapilles);
+                        }
+                    }
+                    &--laPaletteDuGout:before{
+                        @include before("../img/verte.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include before("../img/verte.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                    &--laPaletteDuGout:after{
+                        @include after("../img/verteD.png", $tailleBgcBarrePaletteDuGout);
+                        @media (max-width: 800px) {
+                            @include after("../img/verteD.png", $tailleBgcBarreRespPaletteDuGout);
+                        }
+                    }
+                }
+                &__prix{
+                    @include spanPrix;                    
+                }
+                &__animSoulignage{
+                    &--laNoteEnchantee{
+                        @include animSoulignage($couleurSecondaireNoteEnchantee);
+                    }
+                    &--leChicALaFrancaise{
+                        @include animSoulignage($couleurQuaternaireChicALaFrancaise);
+                    }
+                    &--leDeliceDesPapilles{
+                        @include animSoulignage($couleurQuaternaireDeliceDesPapilles);
+                    }
+                    &--laPaletteDuGout{
+                        @include animSoulignage($couleurSecondairePaletteDuGout);
+                    }
+                }
+            }
+        }
+        &__foot{
+            text-align: center;
+            margin-top: 50px;
+            &__titre{
+                font-size: 3rem;
+                &--laNoteEnchantee{
+                    font-family: "devonshire";
+                    font-weight: lighter;
+                    color:$couleurSecondaireNoteEnchantee;
+                }
+                @media (max-width: 375px) {
+                    font-size: 1rem;
+                }
+                &__img{
+                    vertical-align: middle;
+                    width:6.5%;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+}
